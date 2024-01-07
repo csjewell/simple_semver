@@ -27,7 +27,7 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/csjewell/simple_semver"
+	semver "github.com/csjewell/simple_semver"
 	"github.com/google/go-cmp/cmp"
 )
 
