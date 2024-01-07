@@ -1,0 +1,121 @@
+linters:
+  enable:
+    - decorder
+    - dogsled
+    - dupl
+    - dupword
+    - durationcheck
+    - errname
+    - errorlint
+    - exhaustive
+    - exportloopref
+    - forbidigo
+    - forcetypeassert
+    - funlen
+    - gci
+    - gocheckcompilerdirectives
+    - gochecksumtype
+    - gocognit
+    - goconst
+    - gocritic
+    - godot
+    - godox
+    #- goerr113
+    - gofmt
+    - gofumpt
+    - goheader
+    - goimports
+    - gomoddirectives
+    - gosec
+    - gosmopolitan
+    - inamedparam
+    - interfacebloat
+    - lll
+    - maintidx
+    - makezero
+    - mirror
+    - misspell
+    - musttag
+    - nakedret
+    - nestif
+    - nilerr
+    - nilnil
+    - nolintlint
+    - nonamedreturns
+    - nosprintfhostport
+    #- paralleltest
+    - perfsprint
+    - prealloc
+    - predeclared
+    - reassign
+    - revive
+    - sloglint
+    - tenv
+    - testableexamples
+    - testifylint
+    - thelper
+    - tparallel
+    - unconvert
+    - usestdlibvars
+    - varnamelen
+    - wastedassign
+  disable:
+    - unused
+issues:
+  exclude-rules:
+    - path: '(.+)_test\.go'
+      linters:
+        - funlen
+  rules:
+    - linters:
+        - godox
+      severity: info
+linters-settings:
+  exhaustive:
+    default-signifies-exhaustive: true
+  goheader:
+    template: |-
+      Copyright © 2023, 2024 Curtis Jewell <golang@curtisjewell.name>
+      SPDX-License-Identifier: MIT
+      
+      Permission is hereby granted, free of charge, to any person obtaining a copy
+      of this software and associated documentation files (the "Software"), to deal
+      in the Software without restriction, including without limitation the rights
+      to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+      copies of the Software, and to permit persons to whom the Software is
+      furnished to do so, subject to the following conditions:
+      
+      The above copyright notice and this permission notice shall be included in
+      all copies or substantial portions of the Software.
+      
+      THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+      IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+      FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+      AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+      LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+      OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+      THE SOFTWARE.
+  revive:
+    severity: warning
+    enable-all-rules: true
+    rules:
+      - name: cyclomatic
+        disabled: true
+      - name: cognitive-complexity
+        disabled: true
+      - name: flag-parameter
+        disabled: true
+      - name: function-length
+        disabled: true
+      - name: line-length-limit
+        disabled: true
+      - name: exported
+        severity: error
+      - name: unused-parameter
+        severity: error
+      - name: add-constant
+        arguments:
+          - maxLitCount: "3"
+            allowStrs: "\"\",\"No\""
+            allowInts: "0,1,2"
+            allowFloats: "0.0,0.,1.0,1.,2.0,2."
